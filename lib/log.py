@@ -5,7 +5,7 @@
 @Author: kehr <kehr.china@gmail.com>
 @Date: 2017-07-17 12:43:42
 @Last Modified by: wangkaixuan
-@Last Modified time: 2017-07-17 15:19:23
+@Last Modified time: 2017-07-17 17:12:32
 @Description:
 """
 import logging
@@ -63,6 +63,7 @@ def enable_project_pretty_logging(options=None, logger=None):
 
     if (options.g_log_to_stderr or
             (options.g_log_to_stderr is None and not logger.handlers)):
+        print options.g_log_to_stderr,logger.handlers
         # Set up color if we are in a tty and curses is installed
         channel = logging.StreamHandler()
         channel.setFormatter(BetterFormater())

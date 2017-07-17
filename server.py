@@ -5,8 +5,8 @@
 @File: server.py
 @Author: kehr <kehr.china@gmail.com>
 @Date: 2017-07-14 16:11:34
-@Last Modified by: kehr
-@Last Modified time: 2017-07-17 14:48:10
+@Last Modified by: wangkaixuan
+@Last Modified time: 2017-07-17 17:15:19
 @Description:
 """
 
@@ -59,8 +59,10 @@ class Application(tornado.web.Application):
     def _init_environment(self):
         """初始化服务器环境"""
         self.prepare_dirs(['log'])
-        tornado.options.parse_command_line()
         tornado.options.parse_config_file('conf/tornado.conf')
+        # parse_command_line 和 parse_config_file 不能同时使用
+        # 会重复添加处理日志的 Handler
+        # tornado.options.parse_command_line()
 
     def prepare_dirs(self, dirs):
         """创建数据目录"""
