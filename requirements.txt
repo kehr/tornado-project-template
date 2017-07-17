@@ -1,0 +1,3 @@
+tornado == 4.5.1
+peewee == 2.6.4
+mandb == 0.1.4
