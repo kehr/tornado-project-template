@@ -5,8 +5,8 @@
 @File: base.py
 @Author: kehr <kehr.china@gmail.com>
 @Date: 2017-07-17 13:40:40
-@Last Modified by: kehr
-@Last Modified time: 2017-07-17 14:20:35
+@Last Modified by: wangkaixuan
+@Last Modified time: 2017-07-17 15:06:24
 @Description:
 """
 
@@ -77,7 +77,7 @@ class BaseHandler(tornado.web.RequestHandler):
                 future.set_result(result)
             except Exception as e:
                 future.set_exception(e)
-                # logging.exception(e)
+                self.logger.exception(e)
 
         t = threading.Thread(target=_wrapper)
         t.daemon = True

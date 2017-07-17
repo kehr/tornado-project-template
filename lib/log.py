@@ -4,8 +4,8 @@
 @File: log.py
 @Author: kehr <kehr.china@gmail.com>
 @Date: 2017-07-17 12:43:42
-@Last Modified by: kehr
-@Last Modified time: 2017-07-17 14:20:11
+@Last Modified by: wangkaixuan
+@Last Modified time: 2017-07-17 15:19:23
 @Description:
 """
 import logging
@@ -74,7 +74,10 @@ def define_project_logging_options(options=None, logger=None):
     if options is None:
         # late import to prevent cycle
         from tornado.options import options
-
+    options.define('g_logging_level', default='info',
+                   help=('Set the Python log level. If \'none\', tornado won\'t touch the '
+                         'logging configuration.'),
+                   metavar='debug|info|warning|error|none')
     options.define('g_log_file_prefix', type=str, default=None, metavar='PATH',
                    help=('Path prefix for log files. '
                          'Note that if you are running multiple tornado processes, '
